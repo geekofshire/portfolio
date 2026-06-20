@@ -48,5 +48,3 @@ The workflow in `.github/workflows/hugo.yaml` builds and deploys the site whenev
 changes are pushed to `main`. In the GitHub repository settings, set the Pages
 source to **GitHub Actions**.
 
-The workflow supplies the correct GitHub Pages base URL during the build. The
-configured `baseURL` can be replaced when a custom domain is connected.
