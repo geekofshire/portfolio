@@ -42,24 +42,6 @@ The generated site is written to `public/`.
 └── hugo.yaml
 ```
 
-## Updating content
-
-Portfolio content is stored in `data/portfolio.yaml`. The file contains profile
-details, experience, projects, skills, education, and external links.
-
-The categorized skills reference is available in [`docs/SKILLS.md`](docs/SKILLS.md).
-
-## Profile image
-
-Add a square portrait at:
-
-```text
-static/images/profile.jpeg
-```
-
-A photo of at least 1000 × 1000 pixels is recommended. The template displays the
-`RJ` monogram until this file exists.
-
 ## Deployment
 
 The workflow in `.github/workflows/hugo.yaml` builds and deploys the site whenever
