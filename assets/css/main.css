@@ -50,7 +50,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 .site-header.is-scrolled { background: color-mix(in srgb, var(--bg) 88%, transparent); border-color: var(--line); backdrop-filter: blur(18px); }
 .nav-wrap { height: 76px; display: flex; align-items: center; justify-content: space-between; }
 .brand { font-size: 1.25rem; font-weight: 850; letter-spacing: -0.06em; text-decoration: none; }
-.brand span, .eyebrow { color: var(--accent); }
+.eyebrow { color: var(--accent); }
 .desktop-nav { display: flex; align-items: center; gap: 30px; margin-left: auto; margin-right: 24px; }
 .desktop-nav a { color: var(--muted); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
 .desktop-nav a:hover { color: var(--text); }

@@ -47,4 +47,3 @@ The generated site is written to `public/`.
 The workflow in `.github/workflows/hugo.yaml` builds and deploys the site whenever
 changes are pushed to `main`. In the GitHub repository settings, set the Pages
 source to **GitHub Actions**.
-
