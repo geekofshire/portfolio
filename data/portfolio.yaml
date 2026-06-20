@@ -1,0 +1,90 @@
+profile:
+  name: Rohan Jha
+  role: Software Engineer
+  location: Kolkata, India
+  email: rohanjha1303@gmail.com
+  eyebrow: Software engineer · Kolkata, India
+  introduction: >-
+    I work across frontend, backend, distributed systems, and applied AI. At rtCamp,
+    I have grown from building WordPress and React interfaces to owning payment flows,
+    media infrastructure, scalable AI services, and complete product features.
+  availability: Feel free to get in touch by email or connect with me online.
+  links:
+    - label: GitHub
+      url: https://github.com/geekofshire
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/rohan-jha-476296213
+    - label: LeetCode
+      url: https://leetcode.com/geekofshire/
+
+experience:
+  company: rtCamp
+  company_url: https://rtcamp.com/
+  role: Software Engineer
+  period: Jan 2024 - Present
+  location: Remote, India
+  summary: >-
+    Building and shipping across the stack, from pixel-accurate frontend work to
+    payment systems, media infrastructure, and GPU-backed AI services.
+  groups:
+    - title: Product engineering
+      description: >-
+        Delivered GoDAM features end to end with React and Frappe: Stripe subscription
+        upgrades, oEmbed and LearnDash integrations, media history, image optimization,
+        transcoder monitoring, and production media-management interfaces.
+      tags: [React, Frappe, Stripe, WordPress]
+    - title: AI infrastructure
+      description: >-
+        Solely designed and built GoDAM's asynchronous AI microservice. Integrated
+        Qwen2.5-VL, semantic search, smart thumbnails, generated descriptions, tagging,
+        segmentation, and face detection with concurrent GPU processing. The service
+        handles bursts of nearly 15,000 requests, and I migrated approximately 12,000
+        existing media assets into its AI and vector-search pipelines.
+      tags: [Python, Qdrant, Redis, Taskiq, Docker]
+    - title: Platforms and payments
+      description: >-
+        Built backend systems for the GoDAM iOS application, including a reusable
+        Frappe wallet, Apple Pay purchase flows, post and comment APIs, external-user
+        onboarding, and hybrid email/phone OTP authentication.
+      tags: [Apple Pay, APIs, Authentication, System design]
+    - title: Frontend foundations
+      description: >-
+        Owned frontend delivery and reviews for NetDriven, created complex Gutenberg
+        blocks for Pasqal, supported new engineers, and shipped responsive work across
+        FNA and Cox Dealertrack with close attention to accessibility and performance.
+      tags: [Gutenberg, JavaScript, SCSS, Accessibility]
+
+projects:
+  - title: RaftKV
+    subtitle: Distributed key-value store in Go
+    description: >-
+      A transport-agnostic Raft consensus core with leader election, replicated logs,
+      commit/apply flow, persistent state, gRPC communication, and an HTTP client API.
+      Its test suite covers elections, stale terms, consistency, commits, and replication.
+    url: https://github.com/geekofshire/dist-kv-store
+    featured: true
+    tags: [Go, Raft, gRPC, Distributed systems]
+
+skills:
+  - group: Languages
+    items: [JavaScript, TypeScript, Python, Go, HTML, CSS, SCSS, SQL]
+  - group: Product development
+    items: [React, Next.js, Frappe, Node.js, Express, WordPress, Gutenberg]
+  - group: AI and data
+    items: [Qwen2.5-VL, Semantic search, Qdrant, Computer vision, scikit-learn]
+  - group: Systems and infrastructure
+    items: [gRPC, Redis, Taskiq, Docker Compose, Linux, MySQL, MongoDB]
+  - group: Integrations
+    items: [Stripe, Apple Pay, LearnDash, REST APIs, oEmbed]
+  - group: Engineering practice
+    items: [System design, Code review, Accessibility, Documentation, Testing]
+
+education:
+  institution: Techno Main Salt Lake
+  degree: Bachelor of Technology
+  period: 2020 - 2024
+  detail: CGPA 9.37
+  achievements:
+    - 350+ data structures and algorithms problems solved
+    - 3-star CodeChef rating with a peak rating of 1675
+    - Open-source contributions in the WordPress ecosystem

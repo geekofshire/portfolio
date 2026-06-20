@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.Params.description }}">
+    <meta name="author" content="{{ site.Params.author }}">
+    <meta name="theme-color" content="#0c1110">
+    <meta property="og:title" content="{{ site.Title }}">
+    <meta property="og:description" content="{{ site.Params.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <title>{{ site.Title }}</title>
+    <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+  </head>
+  <body>
+    {{ $data := hugo.Data.portfolio }}
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="shell nav-wrap">
+        <a class="brand" href="#top" aria-label="Rohan Jha, home">RJ<span>.</span></a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero shell" id="top">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">{{ $data.profile.eyebrow }}</p>
+          <h1 class="profile-name">{{ $data.profile.name }}</h1>
+          <p class="hero-intro">{{ $data.profile.introduction }}</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a class="button button-quiet" href="mailto:{{ $data.profile.email }}">Email me <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        {{ if fileExists "static/images/profile.jpeg" }}
+        <figure class="hero-photo reveal">
+          <img src="{{ "images/profile.jpeg" | relURL }}" alt="Portrait of {{ $data.profile.name }}">
+        </figure>
+        {{ else }}
+        <div class="hero-mark reveal" aria-label="Portrait placeholder">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <span>RJ</span>
+        </div>
+        {{ end }}
+      </section>
+
+      <section class="section shell" id="experience">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 · Experience</p>
+          <h2>Experience</h2>
+          <p>{{ $data.experience.summary }}</p>
+        </div>
+        <div class="experience-frame reveal">
+          <aside class="role-summary">
+            <p class="role-period">{{ $data.experience.period }}</p>
+            <h3>{{ $data.experience.role }}</h3>
+            <a href="{{ $data.experience.company_url }}" rel="noreferrer" target="_blank">{{ $data.experience.company }} <span aria-hidden="true">↗</span></a>
+            <p>{{ $data.experience.location }}</p>
+          </aside>
+          <div class="experience-list">
+            {{ range $data.experience.groups }}
+            <article class="experience-item">
+              <h3>{{ .title }}</h3>
+              <p>{{ .description }}</p>
+              <ul class="tag-list" aria-label="Technologies">
+                {{ range .tags }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="projects">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">02 · Selected projects</p>
+            <h2>Projects</h2>
+          </div>
+          <div class="project-grid">
+            {{ range $data.projects }}
+            <article class="project-card {{ if .featured }}project-featured{{ end }} reveal">
+              <div class="project-topline">
+                <p>{{ .subtitle }}</p>
+                <a href="{{ .url }}" target="_blank" rel="noreferrer" aria-label="View {{ .title }} on GitHub">↗</a>
+              </div>
+              <h3>{{ .title }}</h3>
+              <p>{{ .description }}</p>
+              <ul class="tag-list" aria-label="Technologies">
+                {{ range .tags }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="skills">
+        <div class="section-heading reveal">
+          <p class="eyebrow">03 · Capabilities</p>
+          <h2>Skills</h2>
+        </div>
+        <div class="skill-grid">
+          {{ range $data.skills }}
+          <article class="skill-group reveal">
+            <h3>{{ .group }}</h3>
+            <p>{{ delimit .items " · " }}</p>
+          </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="section shell education" id="education">
+        <div class="section-heading reveal">
+          <p class="eyebrow">04 · Education</p>
+          <h2>Education</h2>
+        </div>
+        <div class="education-card reveal">
+          <div>
+            <h3>{{ $data.education.institution }}</h3>
+            <p>{{ $data.education.period }} · {{ $data.education.detail }}</p>
+          </div>
+          <ul>
+            {{ range $data.education.achievements }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="shell contact-inner reveal">
+          <p class="eyebrow">05 · Contact</p>
+          <h2>Contact</h2>
+          <p>{{ $data.profile.availability }}</p>
+          <a class="contact-email" href="mailto:{{ $data.profile.email }}">{{ $data.profile.email }} <span aria-hidden="true">↗</span></a>
+          <div class="social-links">
+            {{ range $data.profile.links }}
+            <a href="{{ .url }}" target="_blank" rel="noreferrer">{{ .label }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <p>Designed and built by {{ $data.profile.name }}.</p>
+        <p>Hugo · GitHub Pages · <span data-year>{{ now.Year }}</span></p>
+      </div>
+    </footer>
+  </body>
+</html>
